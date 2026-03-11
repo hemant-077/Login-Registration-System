@@ -5,22 +5,28 @@
 ![MySQL](https://img.shields.io/badge/MySQL-Database-blue)
 ![Maven](https://img.shields.io/badge/Maven-Build-red)
 ![JWT](https://img.shields.io/badge/JWT-Authentication-yellow)
+![React](https://img.shields.io/badge/React-Frontend-blue)
 
-A secure **Login & Registration REST API** built using **Spring Boot**.  
-This project provides authentication APIs with **JWT Token based security**.
+A full stack **Login & Registration System** built using **Spring Boot + JWT + React**.
 
-It allows users to **register, login, and receive a JWT token** for authentication.
+The project provides **secure authentication APIs** and a **frontend interface** where users can register and login.
 
 ---
 
 # 🚀 Features
 
+### Backend
 ✅ User Registration  
 ✅ User Login Authentication  
 ✅ JWT Token Generation  
 ✅ Password Encryption (BCrypt)  
 ✅ RESTful API Architecture  
-✅ Clean Layered Structure  
+
+### Frontend
+✅ User Login Page  
+✅ User Registration Page  
+✅ API Integration with Backend  
+✅ Modern UI
 
 ---
 
@@ -30,69 +36,61 @@ It allows users to **register, login, and receive a JWT token** for authenticati
 |-----------|-------------|
 | Java | Programming Language |
 | Spring Boot | Backend Framework |
-| Spring Security | Authentication & Security |
+| Spring Security | Authentication |
 | JWT | Token-based authentication |
 | Spring Data JPA | ORM |
 | MySQL | Database |
+| React | Frontend |
+| Axios | API Calls |
 | Maven | Dependency Management |
-| Lombok | Reduce Boilerplate Code |
 
 ---
 
 # 📂 Project Structure
 
 ```bash
-src/main/java/Login/Login
+Login-Registration-System
 │
-├── controller
-│     └── AuthController.java
+├── backend
+│   └── src/main/java/Login/Login
+│       │
+│       ├── controller
+│       ├── service
+│       ├── repository
+│       ├── entity
+│       ├── dto
+│       ├── security
+│       ├── config
+│       └── LoginSystemApplication.java
 │
-├── service
-│     └── AuthService.java
-│
-├── repository
-│     └── UserRepository.java
-│
-├── entity
-│     └── User.java
-│
-├── dto
-│     ├── LoginRequest.java
-│     ├── RegisterRequest.java
-│     └── LoginResponse.java
-│
-├── security
-│     └── JwtUtil.java
-│
-├── config
-│     └── PasswordConfig.java
-│
-└── LoginSystemApplication.java
+└── frontend
+    ├── src
+    │   ├── components
+    │   ├── pages
+    │   └── App.js
+    │
+    └── package.json
 ```
 
 ---
 
-# ⚙️ Installation & Setup
+# ⚙️ Backend Setup
 
-## 1️⃣ Clone the Repository
+## Clone Repository
 
 ```bash
 git clone https://github.com/hemant-077/Login-Registration-System.git
 ```
 
----
-
-## 2️⃣ Navigate to the Project
-
-```bash
+```
 cd Login-Registration-System
 ```
 
 ---
 
-## 3️⃣ Configure Database
+## Configure Database
 
-Update **application.properties**
+Update `application.properties`
 
 ```properties
 spring.datasource.url=jdbc:mysql://localhost:3306/login_system
@@ -105,7 +103,7 @@ spring.jpa.show-sql=true
 
 ---
 
-## 4️⃣ Run the Application
+## Run Backend
 
 ```bash
 mvn spring-boot:run
@@ -119,15 +117,43 @@ http://localhost:8080
 
 ---
 
+# 💻 Frontend Setup
+
+Navigate to frontend folder
+
+```bash
+cd login-system-frontend
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Run frontend
+
+```bash
+npm start
+```
+
+Frontend will start at
+
+```
+http://localhost:3000
+```
+
+---
+
 # 📡 API Endpoints
 
-## Register User
+### Register
 
 ```
 POST /auth/register
 ```
 
-### Request Body
+Request Body
 
 ```json
 {
@@ -139,13 +165,13 @@ POST /auth/register
 
 ---
 
-## Login User
+### Login
 
 ```
 POST /auth/login
 ```
 
-### Request Body
+Request Body
 
 ```json
 {
@@ -158,9 +184,9 @@ POST /auth/login
 
 # 🔑 Authentication
 
-After login, the API returns a **JWT Token**.
+After successful login the API returns a **JWT Token**.
 
-Example Response:
+Example Response
 
 ```json
 {
@@ -168,7 +194,11 @@ Example Response:
 }
 ```
 
-This token can be used for **authenticated requests**.
+Use this token in **Authorization Header**
+
+```
+Authorization: Bearer <token>
+```
 
 ---
 
@@ -176,7 +206,7 @@ This token can be used for **authenticated requests**.
 
 You can test APIs using:
 
-- Postman
+- Postman  
 - Thunder Client (VS Code)
 
 ---
@@ -190,4 +220,4 @@ https://github.com/hemant-077
 
 ---
 
-⭐ If you like this project, give it a **star on GitHub**.
+⭐ If you like this project give it a **star on GitHub**.
