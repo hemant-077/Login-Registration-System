@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+/* =========================
+   🌊 REALISTIC WATER LIGHT
+   ========================= */
+
+@keyframes waterFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 60%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.water-bg {
+  position: absolute;
+  inset: -30%;
+  background:
+    radial-gradient(
+      circle at var(--x, 50%) var(--y, 50%),
+      rgba(255,255,255,0.18),
+      rgba(255,255,255,0.10) 25%,
+      rgba(255,255,255,0.04) 45%,
+      transparent 65%
+    ),
+    linear-gradient(
+      120deg,
+      rgba(255,255,255,0.04),
+      rgba(255,255,255,0.02),
+      rgba(255,255,255,0.04)
+    );
+  background-size: 200% 200%;
+  animation: waterFlow 18s ease-in-out infinite;
+  filter: blur(90px);
+  pointer-events: none;
+}
